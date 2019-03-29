@@ -3,22 +3,27 @@
 
 void main() {
 
-  int prev = 0;
-  int curr = 1;
+  double prev = 0.0;
+  double curr = 1.0;
   double result = 1.0;
 
-  double base = pow(10,1000);
+  double base = pow(10,200);
   int index = 0;
+  int digitShift = 0;
 
-  while(1) {
+  while(digitShift < 5) {
+
     if((result / base) >= 1.0) {
-      printf("%f\n", index);
-      break;
+      digitShift++;
+      result = result / base;
     }
 
     prev = curr;
     curr = result;
     result = prev + curr;
+
     index++;
   }
+
+  printf("%i",index);
 }
