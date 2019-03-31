@@ -1,5 +1,4 @@
 
-#Inefficient way of using DP. CAn srart with the top left most corner and precompute the values as we go.
 def main():
 
     sum = traverseLattice(20,20)
@@ -7,14 +6,28 @@ def main():
 
 def traverseLattice(x,y):
 
-    if(corner(x,y)):
-        return 1
-    else:
-        return traverseLattice(x-1,y) + traverseLattice(x,y-1)
+    memo = [ [0] * (y+1) ] * (x+1)
 
-#Tests if coordinate is indeed a corner/edge
-def corner(x,y):
-    return  y <= 0 or x <= 0
+    for y in range(0,y+1):
+        memo[y][0] = 1
+
+
+    for x in range(0,x+1):
+        memo[0][x] = 1
+
+
+    x0 = 1 #Start with lefmost corner
+    y0 = 1
+
+    while(y0 < (y+1)):
+        x0 = 1
+        while(x0 < (x+1)):
+            memo[y0][x0] = memo[y0-1][x0] + memo[y0][x0-1]
+            x0 += 1
+        y0 += 1
+
+
+    return memo[y][x]
 
 
 if __name__ == "__main__":
