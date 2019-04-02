@@ -8,16 +8,11 @@ def main():
     for _ in range(0,98): #Shift back by one to account for trivial first term
         constantList = constantList + [next(seqGen)]
 
-    print(constantList)
-
-    numerator = 1
-    denominator = 1
+    numerator, denominator = 1,1
 
     for leftInt in constantList[::-1]:
         numerator,denominator = denominator,numerator
         numerator = denominator * leftInt + numerator #swap
-
-
 
     denoTup = tuple(str(numerator))
 
