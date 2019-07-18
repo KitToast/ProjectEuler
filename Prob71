@@ -1,0 +1,7 @@
+#Problem 71
+# Boils down to finding a correct passcode short enough to bypass all negations given by the keylog text.
+# First, assume that the first guess is the corret guess for the 1st,2nd, 3rd character
+# The next guess is different from the first so we know that the passcode must be longer. Actually, the characters are completely different so this doubles the length of our temp passcode (680)
+# Idea is to have a superposition of orders which collapse as more information arrives to how to optimize the passcode's length.
+
+
