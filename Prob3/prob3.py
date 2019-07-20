@@ -16,14 +16,14 @@ def main():
             found_prime = False
             candidate = primes_list[-1] + 1
             while(not found_prime):
-                for index in range(0,len(primes_list)):
+                for prime in primes_list:
 
-                    if(primes_list[index] >= math.sqrt(candidate)):
+                    if(prime >= math.sqrt(candidate)):
                         found_prime = True
                         primes_list.append(candidate)
                         break
 
-                    if(candidate % primes_list[index] == 0):
+                    if(candidate % prime == 0):
                         break
 
                 candidate += 1
